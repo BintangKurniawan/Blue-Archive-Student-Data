@@ -1,4 +1,9 @@
 // app global css in SCSS form
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Yusei Magic', sans-serif;
+}

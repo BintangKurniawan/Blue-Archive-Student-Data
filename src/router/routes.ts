@@ -6,6 +6,23 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/MainLayout.vue'),
     children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
   },
+  {
+    path: '/home',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/HomePage.vue') }],
+  },
+
+  {
+    path: '/detail/:name',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/DetailPage.vue') }],
+  },
+
+  {
+    path: '/abydos',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [{ path: '', component: () => import('pages/DetailPage.vue') }],
+  },
 
   // Always leave this as last one,
   // but you can also remove it
