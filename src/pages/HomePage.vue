@@ -10,6 +10,7 @@
         clear-icon="close"
         input-class="placeholder-color text-black"
         placeholder="Search"
+        @update:model-value="searchQ(search)"
       >
         <template v-slot:append>
           <q-icon name="search" class="text-black" />
@@ -17,7 +18,7 @@
       </q-input>
     </div>
 
-    <div class="flex flex-wrap gap-3 mt-4">
+    <div class="flex flex-wrap gap-3 mt-4 items-center w-full justify-center">
       <div v-for="item in data" :key="item.name">
         <CardStd
           :photoUrl="item.photoUrl"
@@ -28,8 +29,9 @@
       </div>
     </div>
 
-    <div class="row justify-center">
+    <div class="row justify-center mt-5">
       <q-pagination
+        v-if="data && data.length >= 10"
         v-model="Current"
         direction-links
         :boundary-numbers="false"
@@ -52,7 +54,7 @@ export default {
   },
   data() {
     return {
-      search: ref(''),
+      search: ''.toUpperCase(),
       data: [],
       pagination: {
         rowsPerPage: 10,
@@ -63,18 +65,32 @@ export default {
   },
   mounted() {
     const curr = this.$route.query.page || 1;
+    const sQ = this.$route.query.search || '';
+    this.search = sQ;
+    console.log(sQ);
     this.Current = parseInt(curr);
-    this.getData(curr);
+    this.getData(curr, sQ);
   },
   methods: {
     paginate() {
       this.$router.push({ query: { page: this.current } });
       this.getData(this.Current);
     },
-    async getData(current) {
+    searchQ(search) {
+      this.$router.push({ query: { search: this.search } });
+      this.Current = 1;
+      this.getData(this.Current, search);
+    },
+    async getData(current, search) {
+      let newSearch;
+      if (search === null) {
+        newSearch = '';
+      } else {
+        newSearch = search;
+      }
       await axios
         .get(
-          `https://api-blue-archive.vercel.app/api/characters?page=${current}&perPage=10`
+          `https://api-blue-archive.vercel.app/api/characters?page=${current}&perPage=10&name=${newSearch}`
         )
         .then((res) => {
           console.log(res);

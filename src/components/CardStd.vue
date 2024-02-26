@@ -1,8 +1,8 @@
 <template>
-  <q-card class="w-[225px]">
+  <q-card class="w-[210px]">
     <q-img
       :src="photoUrl"
-      width="225px"
+      width="210px"
       height="auto"
       class="cursor-pointer"
       @click="goToDetail(name, page)"
