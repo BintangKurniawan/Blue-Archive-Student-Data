@@ -17,7 +17,7 @@
 
       <q-img
         v-if="img"
-        :src="'/public/logo/' + img"
+        :src="'/src/assets/img/' + img"
         :alt="title"
         width="40px"
         height="33px"
