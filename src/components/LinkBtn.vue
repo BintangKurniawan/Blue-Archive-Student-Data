@@ -40,6 +40,7 @@ export default {
       <Icon :icon="'mdi:' + icon" width="24" v-if="icon" />
 
       <q-img
+        v-if="img"
         :src="'/logo/' + img"
         loading="lazy"
         alt="title"
