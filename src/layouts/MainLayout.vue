@@ -17,52 +17,52 @@ export default {
       {
         title: 'Abydos',
         link: '/abydos',
-        img: 'Abydos_Icon.webp',
+        img: 'Abydos_Icon.png',
       },
       {
         title: 'Arius',
         link: '/arius',
-        img: 'ARIUS_Icon.webp',
+        img: 'ARIUS_Icon.png',
       },
       {
         title: 'Gehenna',
         link: '/gehenna',
-        img: 'Gehenna_Icon.webp',
+        img: 'Gehenna_Icon.png',
       },
       {
         title: 'Hyakkiyako',
         link: '/hyakkiyako',
-        img: 'Hyakkiyako_Icon.webp',
+        img: 'Hyakkiyako_Icon.png',
       },
       {
         title: 'Millennium',
         link: '/millennium',
-        img: 'Millennium_Icon.webp',
+        img: 'Millennium_Icon.png',
       },
       {
         title: 'Red Winter',
         link: '/redwinter',
-        img: 'Red_Winter_Icon.webp',
+        img: 'Red_Winter_Icon.png',
       },
       {
         title: 'Shanhaijing',
         link: '/shanhaijing',
-        img: 'Shanhaijing_Icon.webp',
+        img: 'Shanhaijing_Icon.png',
       },
       {
         title: 'SRT',
         link: '/srt',
-        img: 'SRT_Icon.webp',
+        img: 'SRT_Icon.png',
       },
       {
         title: 'Trinity',
         link: '/trinity',
-        img: 'Trinity_Icon.webp',
+        img: 'Trinity_Icon.png',
       },
       {
         title: 'Valkyrie',
         link: '/valkyrie',
-        img: 'Valkyrie_Icon.webp',
+        img: 'Valkyrie_Icon.png',
       },
     ];
     return {
