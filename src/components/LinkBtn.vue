@@ -16,7 +16,6 @@
       <Icon :icon="'mdi:' + icon" width="24" v-if="icon" />
 
       <q-img
-        v-if="img"
         src="/src/assets/img/Abydos_Icon.png"
         :alt="title"
         width="40px"
