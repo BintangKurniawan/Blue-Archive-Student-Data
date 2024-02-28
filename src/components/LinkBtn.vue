@@ -17,9 +17,10 @@
 
       <q-img
         src="/src/assets/img/Abydos_Icon.png"
-        :alt="title"
-        width="40px"
-        height="33px"
+        alt="title"
+        class="w-[40px] h-[33px]"
+        loading="lazy"
+        fetchpriority="low"
       />
       <p class="capitalize text-sm">{{ title }}</p>
     </div>
