@@ -40,19 +40,13 @@ export default {
       <Icon :icon="'mdi:' + icon" width="24" v-if="icon" />
 
       <q-img
-        src="src/assets/img/Abydos_Icon.png"
+        :src="'/logo/' + img"
         loading="lazy"
         alt="title"
         class="w-[40px] h-[33px]"
         fetchpriority="low"
       />
-      <q-img
-        :src="'src/assets/img/Blue_Archive_EN_logo.svg'"
-        loading="lazy"
-        alt="wgs"
-        class="w-[130px] h-[29px]"
-        fetchpriority="low"
-      />
+
       <p class="capitalize text-sm">{{ title }}</p>
     </div>
   </div>
