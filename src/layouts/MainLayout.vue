@@ -76,6 +76,8 @@ export default {
     return {};
   },
   mounted() {
+    console.log(location.hostname);
+
     console.log(this.leftDrawerOpen);
   },
   methods: {},
