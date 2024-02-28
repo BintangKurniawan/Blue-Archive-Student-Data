@@ -27,7 +27,7 @@ export default {
     photoUrl: String,
     imageSchool: String,
     damageType: String,
-    page: String,
+    page: Number,
   },
   methods: {
     goToDetail(name, page) {

@@ -1,107 +1,71 @@
 <template>
-  <div class="m-4">
-    <div class="md:w-fit border-2 px-2">
-      <q-input
-        dense
-        class="md:w-[160px]"
-        v-model="search"
-        debounce="700"
-        clearable
-        clear-icon="close"
-        input-class="placeholder-color text-black"
-        placeholder="Search"
-        @update:model-value="searchQ(search)"
-      >
-        <template v-slot:append>
-          <q-icon name="search" class="text-black" />
-        </template>
-      </q-input>
-    </div>
-
-    <div class="flex flex-wrap gap-3 mt-4 items-center w-full justify-center">
-      <div v-for="item in data" :key="item.name">
-        <CardStd
-          :photoUrl="item.photoUrl"
-          :name="item.name"
-          :school="item.school"
-          :page="Current"
-        />
-      </div>
-    </div>
-
-    <div class="row justify-center mt-5">
-      <q-pagination
-        v-if="data && data.length >= 10"
-        v-model="Current"
-        direction-links
-        :boundary-numbers="false"
-        :max="100"
-        boundary-links
-        :max-pages="5"
-        @update:model-value="paginate()"
-      />
-    </div>
+  <div v-for="items in paths" :key="items.path">
+    <ItemsFrag :school="items.school" v-if="$route.path === items.path" />
   </div>
 </template>
 
-<script>
-import { ref } from 'vue';
-import axios from 'axios';
-import CardStd from 'src/components/CardStd.vue';
+<script lang="ts">
+import ItemsFrag from 'src/fragment/ItemsFrag.vue';
+import { useRouter, useRoute } from 'vue-router';
 export default {
+  components: { ItemsFrag },
   setup() {
-    return { Current: ref(1) };
-  },
-  data() {
-    return {
-      search: ''.toUpperCase(),
-      data: [],
-      pagination: {
-        rowsPerPage: 10,
-        page: 1,
-        rowsNumber: 0,
+    const paths = [
+      {
+        path: '/home',
+        school: 'Home',
       },
-    };
+      {
+        path: '/abydos',
+        school: 'Abydos',
+      },
+      {
+        path: '/arius',
+        school: 'Arius',
+      },
+      {
+        path: '/gehenna',
+        school: 'Gehenna',
+      },
+      {
+        path: '/hyakkiyako',
+        school: 'Hyakkiyako',
+      },
+      {
+        path: '/millennium',
+        school: 'Millennium',
+      },
+      {
+        path: '/redwinter',
+        school: 'Red Winter',
+      },
+      {
+        path: '/shanhaijing',
+        school: 'Shanhaijing',
+      },
+      {
+        path: '/srt',
+        school: 'SRT',
+      },
+      {
+        path: '/trinity',
+        school: 'Trinity',
+      },
+      {
+        path: '/valkyrie',
+        school: 'Valkyrie',
+      },
+    ];
+    return { path: '', paths };
   },
   mounted() {
-    const curr = this.$route.query.page || 1;
-    const sQ = this.$route.query.search || '';
-    this.search = sQ;
-    console.log(sQ);
-    this.Current = parseInt(curr);
-    this.getData(curr, sQ);
+    const route = useRoute();
+    let path = route.path;
+    path = path.replace(/\//g, '');
+    path = path.charAt(0).toUpperCase() + path.slice(1);
+    this.path = path;
+    console.log(this.path);
   },
-  methods: {
-    paginate() {
-      this.$router.push({ query: { page: this.current } });
-      this.getData(this.Current);
-    },
-    searchQ(search) {
-      this.$router.push({ query: { search: this.search } });
-      this.Current = 1;
-      this.getData(this.Current, search);
-    },
-    async getData(current, search) {
-      let newSearch;
-      if (search === null) {
-        newSearch = '';
-      } else {
-        newSearch = search;
-      }
-      await axios
-        .get(
-          `https://api-blue-archive.vercel.app/api/characters?page=${current}&perPage=10&name=${newSearch}`
-        )
-        .then((res) => {
-          console.log(res);
-          this.data = res.data.data;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
-  },
-  components: { CardStd },
 };
 </script>
 
