@@ -1,32 +1,5 @@
 <!-- just for ordinary component button -->
 
-<template>
-  <div
-    @click="router.push(link)"
-    :class="`relative group transition-all md:w-${width} w-${width} flex items-center gap-1 cursor-pointer pb-1 md:justify-start ${
-      $route.path === link ? 'text-primary' : ''
-    }`"
-  >
-    <span
-      class="h-[2px] inline-block bg-primary absolute left-0 bottom-0.5 group-hover:w-full transition-[width] ease duration-300"
-      :class="$route.path === link ? 'w-full' : 'w-0'"
-      >&nbsp;</span
-    >
-    <div class="flex items-center gap-4">
-      <Icon :icon="'mdi:' + icon" width="24" v-if="icon" />
-
-      <q-img
-        src="/src/assets/img/Abydos_Icon.png"
-        alt="title"
-        class="w-[40px] h-[33px]"
-        loading="lazy"
-        fetchpriority="low"
-      />
-      <p class="capitalize text-sm">{{ title }}</p>
-    </div>
-  </div>
-</template>
-
 <script>
 import { Icon } from '@iconify/vue';
 
@@ -50,3 +23,37 @@ export default {
 </script>
 
 <style lang="scss" scoped></style>
+
+<template>
+  <div
+    @click="router.push(link)"
+    :class="`relative group transition-all md:w-${width} w-${width} flex items-center gap-1 cursor-pointer pb-1 md:justify-start ${
+      $route.path === link ? 'text-primary' : ''
+    }`"
+  >
+    <span
+      class="h-[2px] inline-block bg-primary absolute left-0 bottom-0.5 group-hover:w-full transition-[width] ease duration-300"
+      :class="$route.path === link ? 'w-full' : 'w-0'"
+      >&nbsp;</span
+    >
+    <div class="flex items-center gap-4">
+      <Icon :icon="'mdi:' + icon" width="24" v-if="icon" />
+
+      <q-img
+        src="/src/assets/img/Abydos_Icon.png"
+        alt="title"
+        class="w-[40px] h-[33px]"
+        loading="lazy"
+        fetchpriority="low"
+      />
+      <q-img
+        src="../assets/img/Blue_Archive_EN_logo.svg"
+        loading="lazy"
+        alt="wgs"
+        class="w-[130px] h-[29px]"
+        fetchpriority="low"
+      />
+      <p class="capitalize text-sm">{{ title }}</p>
+    </div>
+  </div>
+</template>
