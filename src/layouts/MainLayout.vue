@@ -17,7 +17,7 @@ export default {
       {
         title: 'Abydos',
         link: '/abydos',
-        img: 'Blue_Archive_EN_logo.svg',
+        img: 'Abydos_Icon.png',
       },
       {
         title: 'Arius',
