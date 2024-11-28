@@ -2,6 +2,8 @@
 
 A Blue Archive student data
 
+The API is from https://api-blue-archive.vercel.app/
+
 ## Install the dependencies
 ```bash
 yarn
