@@ -100,7 +100,10 @@ export default {
       if (this.school === 'Home') {
         await axios
           .get(
-            `https://api-blue-archive.vercel.app/api/characters?page=${current}&perPage=10&name=${newSearch}`
+            `https://api-blue-archive.vercel.app/api/characters?page=${current}&perPage=10&name=${newSearch}`,
+            {
+              headers: { 'Access-Control-Allow-Origin': '*' },
+            }
           )
           .then((res) => {
             console.log(res);
